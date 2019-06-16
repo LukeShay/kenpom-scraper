@@ -12,7 +12,8 @@ soup = BeautifulSoup(src, 'lxml')
 links = soup.find_all('a')
 
 for link in links:
+  href = link.string + ""
   print(link.get('href'))
-  if(link.get('href').find("fanmatch.php?") != -1):
-    temp = requests.get('https://kenpom.com/' + link.get('href'))
-    print(temp.content)
+  print(href)
+  temp = requests.get('https://kenpom.com/' + href)
+  print(temp.content)
