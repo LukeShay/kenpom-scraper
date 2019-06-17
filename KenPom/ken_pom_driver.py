@@ -6,7 +6,7 @@ ken_pom = KenPom(webdriver.Chrome())
 
 ken_pom.go_to()
 
-ken_pom.login('roby@shaybrothers.com', 'DqwtQ5eW1K')
+ken_pom.login('roby@shaybrothers.com', 'DqwtQ5eW1K') #TODO Needs to be changed to take in arguments in command line.
 
 ken_pom.go_to_fan_match()
 
