@@ -2,15 +2,14 @@ import time
 from KenPom import KenPom
 from selenium import webdriver
 
-#from kenpom_utils import *
-driver = webdriver.Chrome()
+ken_pom = KenPom(webdriver.Chrome())
 
-ken_pom = KenPom(driver)
-
-ken_pom.go_to_website()
+ken_pom.go_to()
 
 ken_pom.login('roby@shaybrothers.com', 'DqwtQ5eW1K')
 
-time.sleep(5)
+ken_pom.go_to_fan_match()
 
-driver.quit()
+print(ken_pom.get_num_fan_match_rows())
+
+time.sleep(5)
