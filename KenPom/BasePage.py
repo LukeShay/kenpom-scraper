@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 WAIT_TIME = 10
 
 
-class BaseUtils:
+class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.driver.implicitly_wait(WAIT_TIME)
@@ -27,8 +27,23 @@ class BaseUtils:
     def get_element_by_name(self, element_name):
         return self.driver.find_element_by_name(element_name)
 
+    def get_element_by_xpath(self, element_xpath):
+        return self.driver.find_element_by_xpath(element_xpath)
+
     def get_elements_by_xpath(self, elements_xpath):
         return self.driver.find_elements_by_xpath(elements_xpath)
+
+    @staticmethod
+    def get_name(element):
+        return element.get_attribute("name")
+
+    @staticmethod
+    def get_class(element):
+        return element.get_attribute("class")
+
+    @staticmethod
+    def get_text(element):
+        return element.text
 
     def go_to_website(self, url):
         self.driver.get(url)
