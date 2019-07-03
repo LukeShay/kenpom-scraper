@@ -42,7 +42,7 @@ class BasePage:
 
     def does_element_exist(self, element_xpath):
         try:
-            self.driver.implicitly_wait(1)
+            self.driver.implicitly_wait(0)
             self.driver.find_element_by_xpath(element_xpath)
         except NoSuchElementException:
             self.driver.implicitly_wait(WAIT_TIME)

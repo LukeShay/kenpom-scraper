@@ -1,3 +1,6 @@
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
 from web_scraper.BasePage import BasePage
 from web_scraper.ken_pom.KenPomUtils import *
 
@@ -20,6 +23,18 @@ class KenPomPage(BasePage):
     def __init__(self, driver):
         BasePage.__init__(self, driver)
         self.driver = driver
+
+        self.scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets.json',
+                                                                      self.scope)
+        self.client = gspread.authorize(self.creds)
+
+        self.sheet = self.client.open("KenPom").sheet1
+        self.sheet.clear()
+        self.row = 1
+
+        self.sheet.insert_row(["HOME TEAM", "AWAY TEAM", "PREDICTION", "CORRECT/WRONG"], self.row)
+        self.row += 1
 
     def __del__(self):
         BasePage.__del__(self)
@@ -62,18 +77,28 @@ class KenPomPage(BasePage):
     def get_previous_date(self):
         return BasePage.get_text(BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH))
 
+    def get_row_as_tuple(self, row_number):
+        return self.get_table_row_teams(row_number) + self.get_table_row_prediction(row_number)
+
     def get_row_as_string(self, row_number):
         return tuple_to_string(self.get_table_row_teams(row_number) + self.get_table_row_prediction(row_number))
 
     def get_current_date(self):
         return self.driver.current_url.split('=')[1]
 
+    def send_all_rows_to_sheet(self):
+        for num in range(1, self.get_num_rows() + 1):
+            self.sheet.insert_row(self.get_row_as_tuple(num), self.row)
+            self.row += 1
+
+        self.sheet.insert_row([], self.row)
+        self.row += 1
+
     def get_all_rows_as_string(self):
         string = ''
         for num in range(1, self.get_num_rows() + 1):
             try:
                 string += self.get_row_as_string(num) + '\n'
-                num += 1
             except IndexError:
                 string += 'EXCEPTION\n'
 
