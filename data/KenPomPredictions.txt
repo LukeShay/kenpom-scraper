@@ -1,0 +1,161 @@
+2019-04-08/nVirginia Texas Tech Virginia 61-58 (58%) correct 
+/n2019-04-06/nTexas Tech Michigan St. Michigan St. 67-66 (55%) wrong 
+Virginia Auburn Virginia 70-64 (70%) correct 
+
+/n2019-04-05/nSouth Florida DePaul DePaul 74-71 (62%) wrong 
+
+/n2019-04-04/nTexas Lipscomb Texas 77-75 (58%) correct 
+Marshall Green Bay Marshall 89-85 (65%) correct 
+
+/n2019-04-03/nDePaul South Florida DePaul 73-70 (62%) correct 
+
+/n2019-04-02/nTexas TCU Texas 73-71 (56%) correct 
+Lipscomb Wichita St. Lipscomb 79-76 (63%) correct 
+Marshall Hampton Marshall 90-85 (65%) correct 
+Green Bay Texas Southern Green Bay 91-86 (67%) correct 
+
+/n2019-04-01/nSouth Florida DePaul South Florida 77-73 (63%) correct 
+
+/n2019-03-31/nMichigan St. Duke Michigan St. 77-76 (52%) correct 
+Auburn Kentucky Kentucky 73-71 (58%) wrong 
+
+/n2019-03-30/nTexas Tech Gonzaga Gonzaga 72-69 (61%) wrong 
+Virginia Purdue Virginia 67-63 (65%) correct 
+
+/n2019-03-29/nAuburn North Carolina North Carolina 82-78 (64%) wrong 
+Kentucky Houston Kentucky 68-66 (58%) correct 
+Duke Virginia Tech Duke 75-70 (67%) correct 
+Michigan St. LSU Michigan St. 80-72 (74%) correct 
+Green Bay Cal St. Bakersfield Green Bay 81-75 (70%) correct 
+
+/n2019-03-28/nPurdue Tennessee Purdue 75-74 (51%) correct 
+Texas Tech Michigan Michigan 62-61 (54%) wrong 
+Gonzaga Florida St. Gonzaga 79-72 (74%) correct 
+Virginia Oregon Virginia 64-54 (82%) correct 
+South Florida Loyola Marymount South Florida 67-62 (66%) correct 
+Hampton NJIT NJIT 80-75 (65%) wrong 
+Texas Southern Louisiana Monroe Louisiana Monroe 90-81 (78%) wrong 
+
+/n2019-03-27/nLipscomb North Carolina St. North Carolina St. 84-80 (64%) wrong 
+Texas Colorado Texas 74-66 (76%) correct 
+DePaul Coastal Carolina DePaul 85-78 (74%) correct 
+
+/n2019-03-26/nTCU Creighton TCU 79-74 (66%) correct 
+Wichita St. Indiana Indiana 74-67 (75%) wrong 
+Hampton Charleston Southern Hampton 80-78 (57%) correct 
+Marshall Presbyterian Marshall 88-84 (64%) correct 
+Green Bay FIU Green Bay 90-87 (63%) correct 
+
+/n2019-03-25/nSouth Florida Utah Valley South Florida 74-71 (59%) correct 
+Loyola Marymount Brown Loyola Marymount 69-64 (65%) correct 
+Cal St. Bakersfield Southern Utah Southern Utah 74-73 (51%) wrong 
+Texas Southern UT Rio Grande Valley UT Rio Grande Valley 83-77 (71%) wrong 
+Coastal Carolina West Virginia West Virginia 83-74 (81%) wrong 
+DePaul Longwood DePaul 83-69 (89%) correct 
+Colorado Norfolk St. Colorado 80-64 (93%) correct 
+
+/n2019-03-24/nTexas Tech Buffalo Texas Tech 74-70 (66%) correct 
+Tennessee Iowa Tennessee 83-76 (74%) correct 
+Houston Ohio St. Houston 68-63 (67%) correct 
+TCU Nebraska TCU 75-73 (60%) correct 
+Oregon UC Irvine Oregon 64-60 (65%) correct 
+North Carolina Washington North Carolina 78-68 (82%) correct 
+Virginia Tech Liberty Virginia Tech 68-60 (75%) correct 
+Duke UCF Duke 77-66 (85%) correct 
+Virginia Oklahoma Virginia 70-58 (85%) correct 
+Texas Xavier Texas 74-66 (77%) correct 
+Wichita St. Clemson Clemson 73-64 (81%) wrong 
+North Carolina St. Harvard North Carolina St. 81-69 (85%) correct 
+Presbyterian Robert Morris Presbyterian 74-73 (54%) correct 
+
+/n2019-03-23/nAuburn Kansas Auburn 75-74 (53%) correct 
+LSU Maryland LSU 74-73 (52%) correct 
+Kentucky Wofford Kentucky 72-68 (65%) correct 
+Purdue Villanova Purdue 72-67 (66%) correct 
+Florida St. Murray St. Florida St. 74-69 (67%) correct 
+Michigan Florida Michigan 63-56 (72%) correct 
+Lipscomb UNC Greensboro Lipscomb 78-77 (52%) correct 
+Indiana Arkansas Indiana 76-71 (68%) correct 
+Michigan St. Minnesota Michigan St. 77-67 (83%) correct 
+Gonzaga Baylor Gonzaga 81-69 (85%) correct 
+FIU Texas St. Texas St. 81-72 (80%) wrong 
+
+/n2019-03-22/nIowa Cincinnati Cincinnati 72-71 (53%) wrong 
+Oklahoma Mississippi Oklahoma 72-71 (52%) correct 
+Ohio St. Iowa St. Iowa St. 72-68 (67%) wrong 
+UCF VCU VCU 64-63 (52%) wrong 
+Washington Utah St. Utah St. 68-66 (57%) wrong 
+Oregon Wisconsin Wisconsin 61-56 (68%) wrong 
+Buffalo Arizona St. Buffalo 82-76 (72%) correct 
+Liberty Mississippi St. Mississippi St. 71-65 (71%) wrong 
+Creighton Memphis Creighton 83-79 (67%) correct 
+UC Irvine Kansas St. Kansas St. 63-56 (74%) wrong 
+Virginia Tech Saint Louis Virginia Tech 70-58 (85%) correct 
+Houston Georgia St. Houston 77-65 (85%) correct 
+Texas Tech Northern Kentucky Texas Tech 75-61 (89%) correct 
+Tennessee Colgate Tennessee 83-68 (92%) correct 
+Southern Utah Drake Drake 80-73 (74%) wrong 
+Virginia Gardner Webb Virginia 77-55 (97%) correct 
+North Carolina Iona North Carolina 95-71 (99%) correct 
+Duke North Dakota St. Duke 88-63 (99%) correct 
+
+/n2019-03-21/nFlorida Nevada Nevada 67-66 (51%) wrong 
+Villanova Saint Mary's Villanova 67-66 (52%) correct 
+Baylor Syracuse Syracuse 68-67 (52%) wrong 
+Murray St. Marquette Marquette 76-72 (62%) wrong 
+Maryland Belmont Maryland 77-72 (65%) correct 
+Minnesota Louisville Louisville 71-67 (65%) wrong 
+Wofford Seton Hall Wofford 74-69 (68%) correct 
+Auburn New Mexico St. Auburn 76-69 (73%) correct 
+LSU Yale LSU 85-76 (79%) correct 
+Kansas Northeastern Kansas 76-68 (77%) correct 
+Florida St. Vermont Florida St. 72-63 (79%) correct 
+Louisiana Monroe Kent St. Louisiana Monroe 81-77 (63%) correct 
+Purdue Old Dominion Purdue 72-59 (88%) correct 
+Charleston Southern Florida Atlantic Charleston Southern 71-68 (64%) correct 
+Michigan Montana Michigan 74-57 (93%) correct 
+Cal St. Bakersfield Cal St. Fullerton Cal St. Fullerton 74-69 (67%) wrong 
+Kentucky Abilene Christian Kentucky 75-59 (93%) correct 
+Hampton St. Francis NY Hampton 82-73 (78%) correct 
+Michigan St. Bradley Michigan St. 78-57 (97%) correct 
+Gonzaga Fairleigh Dickinson Gonzaga 90-65 (99%) correct 
+
+/n2019-03-20/nArizona St. St. John's Arizona St. 77-75 (57%) correct 
+Xavier Toledo Xavier 73-71 (59%) correct 
+Nebraska Butler Nebraska 76-69 (74%) correct 
+West Virginia Grand Canyon West Virginia 79-75 (65%) correct 
+DePaul Central Michigan DePaul 85-81 (66%) correct 
+Wichita St. Furman Furman 74-67 (74%) wrong 
+Harvard Georgetown Georgetown 80-74 (69%) wrong 
+Loyola Marymount Cal Baptist Loyola Marymount 71-70 (51%) correct 
+Brown UAB Brown 72-69 (62%) correct 
+Presbyterian Seattle Seattle 77-73 (64%) wrong 
+Texas Southern New Orleans New Orleans 80-78 (54%) wrong 
+South Florida Stony Brook South Florida 72-64 (75%) correct 
+Longwood Southern Miss Southern Miss 72-64 (75%) wrong 
+North Dakota St. North Carolina Central North Dakota St. 70-65 (69%) correct 
+TCU Sam Houston St. TCU 81-67 (89%) correct 
+Green Bay East Tennessee St. East Tennessee St. 85-72 (88%) wrong 
+UT Rio Grande Valley Grambling St. UT Rio Grande Valley 76-66 (82%) correct 
+Coastal Carolina Howard Coastal Carolina 87-75 (87%) correct 
+Norfolk St. Alabama Alabama 81-64 (94%) wrong 
+
+/n2019-03-19/nBelmont Temple Belmont 79-76 (59%) correct 
+Lipscomb Davidson Davidson 72-71 (50%) wrong 
+Arkansas Providence Providence 70-68 (57%) wrong 
+Colorado Dayton Colorado 68-66 (60%) correct 
+Memphis San Diego Memphis 76-71 (70%) correct 
+North Carolina St. Hofstra North Carolina St. 84-74 (82%) correct 
+Texas South Dakota St. Texas 79-69 (84%) correct 
+Fairleigh Dickinson Prairie View A&M Fairleigh Dickinson 76-75 (50%) correct 
+Creighton Loyola Chicago Creighton 71-62 (81%) correct 
+Marshall IUPUI Marshall 83-78 (68%) correct 
+Robert Morris Cornell Robert Morris 64-63 (53%) correct 
+Clemson Wright St. Clemson 70-58 (87%) correct 
+UNC Greensboro Campbell UNC Greensboro 75-65 (83%) correct 
+Utah Valley Cal St. Northridge Utah Valley 85-70 (90%) correct 
+Indiana St. Francis PA Indiana 82-62 (96%) correct 
+
+/n2019-03-18/nNJIT Quinnipiac NJIT 73-66 (73%) correct 
+
+/n
