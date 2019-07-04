@@ -20,17 +20,14 @@ class BasePage:
     def get_elements(self, elements_xpath):
         return self.driver.find_elements_by_xpath(elements_xpath)
 
-    @staticmethod
-    def get_name(element):
-        return element.get_attribute("name")
+    def get_name(self, element_xpath):
+        return self.get_element(element_xpath).get_attribute("name")
 
-    @staticmethod
-    def get_class(element):
-        return element.get_attribute("class")
+    def get_class(self, element_xpath):
+        return self.get_element(element_xpath).get_attribute("class")
 
-    @staticmethod
-    def get_text(element):
-        return element.text
+    def get_text(self, element_xpath):
+        return self.get_element(element_xpath).text
 
     def go_to_website(self, url):
         self.driver.get(url)
