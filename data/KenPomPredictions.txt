@@ -1,0 +1,37 @@
+FAVORITEUNDERDOGACTUAL SPREADPREDICTED SPREADPERCENTAGECORRECT TEAMCOVERED
+Virginia Texas Tech -8 -3 58% True True 
+Texas Tech Michigan St. -10 1 55% False False 
+Virginia Auburn -1 -6 70% True False 
+South Florida DePaul -12 3 62% False False 
+Texas Lipscomb -15 -2 58% True True 
+Marshall Green Bay -20 -4 65% True True 
+DePaul South Florida -4 -3 62% True True 
+Texas TCU -14 -2 56% True True 
+Lipscomb Wichita St. -7 -3 63% True True 
+Marshall Hampton -2 -5 65% True False 
+Green Bay Texas Southern -1 -5 67% True False 
+South Florida DePaul -2 -4 63% True False 
+Michigan St. Duke -1 -1 52% True False 
+Auburn Kentucky -6 2 58% False False 
+Texas Tech Gonzaga -6 3 61% False False 
+Virginia Purdue -5 -4 65% True True 
+Auburn North Carolina -17 4 64% False False 
+Kentucky Houston -4 -2 58% True True 
+Duke Virginia Tech -2 -5 67% True False 
+Michigan St. LSU -17 -8 74% True True 
+Green Bay Cal St. Bakersfield -15 -6 70% True True 
+Purdue Tennessee -5 -1 51% True True 
+Texas Tech Michigan -19 1 54% False False 
+Gonzaga Florida St. -14 -7 74% True True 
+Virginia Oregon -4 -10 82% True False 
+South Florida Loyola Marymount -9 -5 66% True True 
+Hampton NJIT -12 5 65% False False 
+Texas Southern Louisiana Monroe -6 9 78% False False 
+Lipscomb North Carolina St. -1 4 64% False False 
+Texas Colorado -13 -8 76% True True 
+DePaul Coastal Carolina -5 -7 74% True False 
+TCU Creighton -13 -5 66% True True 
+Wichita St. Indiana -10 7 75% False False 
+Hampton Charleston Southern -6 -2 57% True True 
+Marshall Presbyterian -17 -4 64% True True 
+Green Bay FIU -30 -3 63% True True 

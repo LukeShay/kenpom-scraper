@@ -11,17 +11,18 @@ SUBMIT_BUTTON_XPATH = '//*[@name="submit"]'
 FAN_MATCH_BUTTON_XPATH = '//*[@class="fanmatch"]'
 
 FAN_MATCH_TABLE_ROWS_XPATH = '//table[@id="fanmatch-table"]/tbody/tr'
-FAN_MATCH_TABLE_ROW_XPATH = FAN_MATCH_TABLE_ROWS_XPATH + '[{}]'
-FAN_MATCH_TABLE_ROW_SCORE_XPATH = FAN_MATCH_TABLE_ROW_XPATH + '/td[1]'
-FAN_MATCH_TABLE_PREDICTION_XPATH = FAN_MATCH_TABLE_ROW_XPATH + '/td[2]'
-FAN_MATCH_TABLE_TEAMS_XPATH = FAN_MATCH_TABLE_ROW_XPATH + '/td[1]/a'
+FAN_MATCH_XPATH = FAN_MATCH_TABLE_ROWS_XPATH + '[{}]'
+FAN_MATCH_SCORE_XPATH = FAN_MATCH_XPATH + '/td[1]'
+FAN_MATCH_TABLE_PREDICTION_XPATH = FAN_MATCH_XPATH + '/td[2]'
+FAN_MATCH_TABLE_TEAMS_XPATH = FAN_MATCH_XPATH + '/td[1]/a'
 
 FAN_MATCH_PREVIOUS_DATE_XPATH = '//a[contains(@href,"/fanmatch.php")]'
 
 NO_GAMES_XPATH = '//h2[.="Sorry, no games today. :("]'
 
-SHEETS_COLUMNS = ["HOME TEAM", "AWAY TEAM", "HOME SCORE", "AWAY SCORE",
-                  "HOME SCORE PREDICTION", "AWAY SCORE PREDICTION", "PERCENTAGE", "CORRECT/WRONG"]
+COVERED = "=C[{}]<D[{}]"
+
+SHEETS_COLUMNS = ["FAVORITE", "UNDERDOG", "ACTUAL SPREAD", "PREDICTED SPREAD", "PERCENTAGE", "CORRECT TEAM", "COVERED"]
 
 NUM_UNNEEDED_ROWS = 6
 
@@ -34,7 +35,7 @@ class KenPomPage(BasePage):
 
     def init_sheet(self):
         self.scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets.json',
+        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets1.json',
                                                                       self.scope)
         self.client = gspread.authorize(self.creds)
 
@@ -62,7 +63,7 @@ class KenPomPage(BasePage):
     def get_num_rows(self):
         return len(BasePage.get_elements(self, FAN_MATCH_TABLE_ROWS_XPATH + '/td[@class="stats"]/..'))
 
-    def get_table_row_prediction(self, row_number):
+    def get_prediction(self, row_number):
         prediction = BasePage.get_text(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))  # .replace("'", '')
         predication_array = prediction.split(' ')
         team = ''
@@ -78,23 +79,25 @@ class KenPomPage(BasePage):
         team = team.strip()
         score = [int(s) for s in predication_array[i].split('-')]
         percentage = predication_array[i + 1].replace('(', '').replace(')', '')
+        predicted_team = \
+            True if BasePage.get_class(self,
+                                       FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)) == 'correct' else False
 
-        if team == self.get_table_row_teams(row_number)[0]:
-            return score[0], score[1], percentage, \
-                   BasePage.get_class(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))
-        else:
-            return score[1], score[0], percentage, \
-                   BasePage.get_class(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))
+        if team == self.get_teams(row_number)[0]:  # score[0], score[1],
+            return score[1] - score[0], percentage, predicted_team
+        else:  # score[1], score[0],
+            return score[0] - score[1], percentage, predicted_team
 
-    def get_table_row_teams(self, row_number):
+    def get_teams(self, row_number):
         teams = BasePage.get_elements(self, FAN_MATCH_TABLE_TEAMS_XPATH.format(row_number))
         return teams[0].text, teams[1].text
 
-    def get_table_row_score(self, row_number):
-        text = BasePage.get_text(self, FAN_MATCH_TABLE_ROW_SCORE_XPATH.format(row_number)).replace(',', '')
+    def get_score(self, row_number):
+        text = BasePage.get_text(self, FAN_MATCH_SCORE_XPATH.format(row_number)).replace(',', '')
 
         numbers = [int(s) for s in text.split() if s.isdigit()]
-        return numbers[1], numbers[3]
+
+        return tuple((numbers[3] - numbers[1],))  # numbers[1], numbers[3],
 
     def get_num_fan_match_rows(self):
         return len(BasePage.get_elements(self, FAN_MATCH_TABLE_ROWS_XPATH)) - 6
@@ -113,8 +116,9 @@ class KenPomPage(BasePage):
         return BasePage.get_text(BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH))
 
     def get_row_as_tuple(self, row_number):
-        return self.get_table_row_teams(row_number) + self.get_table_row_score(row_number) + \
-               self.get_table_row_prediction(row_number)
+        r_tuple = self.get_teams(row_number) + self.get_score(row_number) + self.get_prediction(row_number)
+        covered = r_tuple[2] < r_tuple[3] < 0
+        return r_tuple + tuple((covered,))
 
     def get_row_as_string(self, row_number):
         return tuple_to_string(self.get_row_as_tuple(row_number))
@@ -124,7 +128,7 @@ class KenPomPage(BasePage):
 
     def send_all_rows_to_sheet(self):
         for num in range(1, self.get_num_rows() + 1):
-            self.sheet.insert_row(self.get_row_as_tuple(num), self.row)
+            self.sheet.insert_row(self.get_row_as_tuple(num), self.row, 'USER_ENTERED')
             self.row += 1
 
         self.sheet.insert_row([], self.row)

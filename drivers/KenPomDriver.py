@@ -18,10 +18,11 @@ file.write(str("".join(SHEETS_COLUMNS)) + '\n')
 ken_pom.send_all_rows_to_sheet()
 file.write(ken_pom.get_all_rows_as_string())
 
-for num in range(20):
-    ken_pom.go_to_previous_fan_match_with_games()
-    ken_pom.send_all_rows_to_sheet()
-    file.write(ken_pom.get_all_rows_as_string())
-
-file.close()
-ken_pom.__del__()
+try:
+    for num in range(20):
+        ken_pom.go_to_previous_fan_match_with_games()
+        ken_pom.send_all_rows_to_sheet()
+        file.write(ken_pom.get_all_rows_as_string())
+except Exception:
+    file.close()
+    ken_pom.__del__()
