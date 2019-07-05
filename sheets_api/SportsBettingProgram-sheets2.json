@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sportsbettingprogram",
+  "private_key_id": "82212f5a3a9853875e682ace0ca8d4566750c927",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYRV2WP5TEc+XJ\nS5OU+PZTJNaOS/ekacEXOaxfP0rY5RCX3s8lTPnwUvdBv0RvIlWwVbYAsjbh/R4+\n8Dn4mNyT3qv2QZqv8G1lqe6brirdRfjr4sWw25uDFlOnAtE2W6xT7pSuD2undakb\n/R0P/68adWGc05+Jw5zveFfuAfPdWI7V/pK7mn7aUjV3Sm8Z089jC7Ch4Rpm8hKD\nCtz/zae4egO3h0s1MJJHBrEQWyG12870svySmxlgn2JbJuXqczI9FTXv/e3yrm89\nj+MIa8mevisanW1CVF0c1HLg435Bre/ItKXgj5Np7pgJifPQkVXQVyX9fM41cvWa\nvkuWHWedAgMBAAECggEABIWwDzJrGxmCqWOFkGIdDxOUDRMe/+94tO8GAKjBZfPw\nAsUMe5DDB7R8rbBxQLUXlks5XEeh3yM0c7PDn2LLNdeiKkf0NBKMusn2iuhiUzXm\niMgWzT2WBQLglm0JCxdjMXWJGpFDkt91vgQ0POfzF2Ye8V7y/EITUvGM3pK8X0y1\nl6HXG43OqSsRjXGz/YTtgPeY4p2RvF1E3Rydctj/fjGb+Vf5Z/FSiSqS7CWww+sv\nYk9xxTq7Iu6YTvf0DTGzB5P5cRVOQl/+d+CHpQE+WfouKXa8wIjZIli8gaHEg0YD\ntedr0x0MsVo/ZLqtQvHw3McKV3wzVomrX1KJpLAi+QKBgQDUOLLHexYcMEjS4ym2\nqmnbzf0uYP4JI6czlaze4DFA0uL54H5OxMi5uAdawgnEskQRoyo5PnGgd9oBhvzx\n+z+S57NHxjNQ3XtlC5dznQOVOoMRE+jkgvH4m1KP+zjg5C4ce7Z4tCQySMpZd8lM\n5p8xeDp/5zYJ3X8keP9Mcj4btQKBgQC3rrZzmIVN3cGbfT281PbmlNONCy7z1egH\nvIOHiuLFUnFGOxURJw4gdBKCRDb6JJ6Scoz3xcNEJR5da5+pU0gITyd2os3qe6+N\nSw9JEWQDv+iQAf8g2b4ZJBEnLyebUIbsZoZgc6pE0VaMRCDkd1hRlmWQxP400/uJ\nSstzRrQdSQKBgQDItAaAGaxDZHa62xNsKaaLtjgnUJtv0UQjyP4Amk56W/dFEkbh\n/8FFwwFRmAjc+Sre80zPbnrPpAmNQDigMVliebZXvt5xL8WvPlMxh+EHlJq33/h1\nhFGLKHngqVqVdbcWQPnFFbjVxXl5O4wpKkKL6oSIygWVNuEzgSsRBUovsQKBgFW/\nJ8k60DATb4gopSN7v27Q1xkmuVp25wSFillCCq7W165Tcng5ZSzdQq6xLYEEi0oO\nU6RvG8K6GTy/Ox+Okzfdy6xkQABQkRlCivYvOiNN+UEQzYsGWundnmxOZQzqQLIn\nAmAQXtIVb3O3cit1UzNzJCK683ix5OCom+VKglaRAoGAVunaXKCx9sNJku7eeISY\nTj7KwV8T/Cdi5Uoms+SKDro4Yxsl3dNwqcYIQ72ouJTvdDcQVIlgbifh3U2KvWLp\n3boOx19mKWkljsPGuEA8vYf+Dt53YoNpUP5cpRT/nbiHRpbXzwg0aaq3eXlFj0r1\n5s3oX/PNx3FhfCL6o8BODbE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "owner2@sportsbettingprogram.iam.gserviceaccount.com",
+  "client_id": "106689398608531140596",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/owner2%40sportsbettingprogram.iam.gserviceaccount.com"
+}
