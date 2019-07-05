@@ -35,15 +35,16 @@ class KenPomPage(BasePage):
 
     def init_sheet(self):
         self.scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets1.json',
+        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets.json',
                                                                       self.scope)
         self.client = gspread.authorize(self.creds)
 
-        self.sheet = self.client.open("KenPom").sheet1
-        self.sheet.clear()
+        self.worksheet = self.client.open("KenPom")
+        self.sheet1 = self.client.open("KenPom").sheet1
+        self.sheet1.clear()
         self.row = 1
 
-        self.sheet.insert_row(SHEETS_COLUMNS, self.row)
+        self.sheet1.insert_row(SHEETS_COLUMNS, self.row)
         self.row += 1
 
     def __del__(self):
@@ -78,10 +79,9 @@ class KenPomPage(BasePage):
 
         team = team.strip()
         score = [int(s) for s in predication_array[i].split('-')]
-        percentage = predication_array[i + 1].replace('(', '').replace(')', '')
-        predicted_team = \
-            True if BasePage.get_class(self,
-                                       FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)) == 'correct' else False
+        percentage = int(predication_array[i + 1].replace('(', '').replace(')', '').replace('%', ''))
+        predicted_team = True if \
+            BasePage.get_class(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)) == 'correct' else False
 
         if team == self.get_teams(row_number)[0]:  # score[0], score[1],
             return score[1] - score[0], percentage, predicted_team
@@ -128,11 +128,8 @@ class KenPomPage(BasePage):
 
     def send_all_rows_to_sheet(self):
         for num in range(1, self.get_num_rows() + 1):
-            self.sheet.insert_row(self.get_row_as_tuple(num), self.row, 'USER_ENTERED')
+            self.sheet1.insert_row(self.get_row_as_tuple(num), self.row, 'USER_ENTERED')
             self.row += 1
-
-        self.sheet.insert_row([], self.row)
-        self.row += 1
 
     def get_all_rows_as_string(self):
         string = ''
@@ -140,3 +137,23 @@ class KenPomPage(BasePage):
             string += self.get_row_as_string(num) + '\n'
 
         return string
+
+    def send_all_rows_of_pages_to_sheets(self, num_pages):
+        self.sheet1.clear()
+        fanmatch_list = [SHEETS_COLUMNS]
+
+        for pages in range(num_pages):
+            self.go_to_previous_fan_match_with_games()
+
+            for rows in range(1, self.get_num_rows() + 1):
+                fanmatch_list.append(self.get_row_as_tuple(rows))
+
+        self.worksheet.values_update(
+            'Sheet1',
+            params={
+                'valueInputOption': 'USER_ENTERED'
+            },
+            body={
+                'values': fanmatch_list
+            }
+        )
