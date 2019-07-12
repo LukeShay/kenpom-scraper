@@ -79,7 +79,7 @@ class KenPomPage(BasePage):
 
         team = team.strip()
         score = [int(s) for s in predication_array[i].split('-')]
-        percentage = int(predication_array[i + 1].replace('(', '').replace(')', '').replace('%', ''))
+        percentage = float(predication_array[i + 1].replace('(', '').replace(')', '').replace('%', ''))
         predicted_team = True if \
             BasePage.get_class(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)) == 'correct' else False
 
@@ -116,9 +116,13 @@ class KenPomPage(BasePage):
         return BasePage.get_text(BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH))
 
     def get_row_as_tuple(self, row_number):
-        r_tuple = self.get_teams(row_number) + self.get_score(row_number) + self.get_prediction(row_number)
-        covered = r_tuple[2] < r_tuple[3] < 0
-        return r_tuple + tuple((covered,))
+        try:
+            r_tuple = self.get_teams(row_number) + self.get_score(row_number) + self.get_prediction(row_number)
+            covered = r_tuple[2] < r_tuple[3] < 0
+            return r_tuple + tuple((covered,))
+        except Exception:
+            print(Exception)
+            return tuple((Exception, 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR'))
 
     def get_row_as_string(self, row_number):
         return tuple_to_string(self.get_row_as_tuple(row_number))
@@ -138,15 +142,16 @@ class KenPomPage(BasePage):
 
         return string
 
-    def send_all_rows_of_pages_to_sheets(self, num_pages):
+    def send_all_rows_of_pages_to_sheets(self, end_date):
         self.sheet1.clear()
         fanmatch_list = [SHEETS_COLUMNS]
+        # file = open('data/ken_pom/KenPomPredictions.txt', 'w+')
 
-        for pages in range(num_pages):
-            self.go_to_previous_fan_match_with_games()
-
+        while end_date not in self.driver.current_url:
             for rows in range(1, self.get_num_rows() + 1):
                 fanmatch_list.append(self.get_row_as_tuple(rows))
+
+            self.go_to_previous_fan_match_with_games()
 
         self.worksheet.values_update(
             'Sheet1',
@@ -157,3 +162,6 @@ class KenPomPage(BasePage):
                 'values': fanmatch_list
             }
         )
+
+        # file.write(fanmatch_list)
+        # file.close()
