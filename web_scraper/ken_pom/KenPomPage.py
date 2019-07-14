@@ -1,8 +1,13 @@
+import os
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 from web_scraper.BasePage import BasePage
 from web_scraper.ken_pom.KenPomUtils import *
+
+JSON_FILE_PATH = os.getcwd() + '/../sheets_api/SportsBettingProgram-sheets.json'
+SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
 HOME_URL = 'https://kenpom.com/'
 EMAIL_XPATH = '//*[@name="email"]'
@@ -29,19 +34,13 @@ NUM_UNNEEDED_ROWS = 6
 
 class KenPomPage(BasePage):
     def __init__(self, driver):
-        self.init_sheet()
         BasePage.__init__(self, driver)
         self.driver = driver
-
-    def init_sheet(self):
-        self.scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        self.creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_api/SportsBettingProgram-sheets.json',
-                                                                      self.scope)
-        self.client = gspread.authorize(self.creds)
+        self.credentials = ServiceAccountCredentials.from_json_keyfile_name(JSON_FILE_PATH, SCOPE)
+        self.client = gspread.authorize(self.credentials)
 
         self.worksheet = self.client.open("KenPom")
         self.sheet1 = self.client.open("KenPom").sheet1
-        self.sheet1.clear()
         self.row = 1
 
         self.sheet1.insert_row(SHEETS_COLUMNS, self.row)
@@ -66,6 +65,9 @@ class KenPomPage(BasePage):
 
     def get_prediction(self, row_number):
         prediction = BasePage.get_text(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))  # .replace("'", '')
+
+        # TODO parse_prediction(prediction)
+
         predication_array = prediction.split(' ')
         team = ''
         i = 0
@@ -103,7 +105,7 @@ class KenPomPage(BasePage):
         return len(BasePage.get_elements(self, FAN_MATCH_TABLE_ROWS_XPATH)) - 6
 
     def go_to_previous_fan_match(self):
-        element = BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH)
+        element = BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH)  # TODO
         BasePage.go_to_website(self, element.get_attribute('href'))
 
     def go_to_previous_fan_match_with_games(self):
@@ -113,16 +115,15 @@ class KenPomPage(BasePage):
             self.go_to_previous_fan_match()
 
     def get_previous_date(self):
-        return BasePage.get_text(BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH))
+        return BasePage.get_text(self, BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH))
 
     def get_row_as_tuple(self, row_number):
         try:
             r_tuple = self.get_teams(row_number) + self.get_score(row_number) + self.get_prediction(row_number)
             covered = r_tuple[2] < r_tuple[3] < 0
             return r_tuple + tuple((covered,))
-        except Exception:
-            print(Exception)
-            return tuple((Exception, 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR'))
+        except IndexError:
+            return tuple((IndexError, 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR', 'ERROR'))
 
     def get_row_as_string(self, row_number):
         return tuple_to_string(self.get_row_as_tuple(row_number))
@@ -145,7 +146,6 @@ class KenPomPage(BasePage):
     def send_all_rows_of_pages_to_sheets(self, end_date):
         self.sheet1.clear()
         fanmatch_list = [SHEETS_COLUMNS]
-        # file = open('data/ken_pom/KenPomPredictions.txt', 'w+')
 
         while end_date not in self.driver.current_url:
             for rows in range(1, self.get_num_rows() + 1):
@@ -153,6 +153,7 @@ class KenPomPage(BasePage):
 
             self.go_to_previous_fan_match_with_games()
 
+        self.sheet1.clear()
         self.worksheet.values_update(
             'Sheet1',
             params={

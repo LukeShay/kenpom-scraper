@@ -1,4 +1,3 @@
-import os
 import sys
 
 from selenium import webdriver
@@ -7,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from web_scraper.ken_pom.KenPomPage import *
 
 CURRENT_FIRST_DATE = '2019-04-08'
+DRIVER_PATH = os.getcwd() + '/../web_drivers/chromedriver.exe'
 
 
 def main():
@@ -16,9 +16,7 @@ def main():
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--window-size=1920x1080')
 
-    chrome_driver = os.getcwd() + '/Users/luke/Desktop/Sports-Betting-Program/web_drivers/chromedriver.exe'
-
-    web_driver = webdriver.Chrome(options=chrome_options)
+    web_driver = webdriver.Chrome(options=chrome_options)  # , executable_path=DRIVER_PATH)
 
     ken_pom = KenPomPage(web_driver)
 
@@ -27,8 +25,6 @@ def main():
 
     ken_pom.go_to_fan_match()
     ken_pom.send_all_rows_of_pages_to_sheets(sys.argv[3])
-
-    ken_pom.__del__()
 
 
 if __name__ == "__main__":

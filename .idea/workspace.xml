@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03fd30c0-3272-40bb-948b-9b7c51c32022" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" afterDir="false" />
+    <list default="true" id="03fd30c0-3272-40bb-948b-9b7c51c32022" name="Default Changelist" comment="Changed naming.">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/luke.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/KenPomDriver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,10 +18,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code_drivers/KenPomDriver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+            <state relative-caret-position="270">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
               <folding>
-                <element signature="e#0#30#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -31,9 +31,9 @@
         <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,11 +99,13 @@
       <find>BaseUtils</find>
       <find>_table_row_</find>
       <find>sheet</find>
+      <find>creds</find>
     </findStrings>
     <replaceStrings>
       <replace>KEN_POM_FANMATCH</replace>
       <replace>_</replace>
       <replace>sheet1</replace>
+      <replace>credentials</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -137,9 +139,9 @@
         <option value="$PROJECT_DIR$/data/ken_pom/KenPomSheetsPage.py" />
         <option value="$PROJECT_DIR$/data/Sheets.py" />
         <option value="$PROJECT_DIR$/data/ken_pom/KenPomSheets.py" />
-        <option value="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" />
         <option value="$PROJECT_DIR$/drivers/KenPomDriver.py" />
         <option value="$PROJECT_DIR$/code_drivers/KenPomDriver.py" />
+        <option value="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" />
       </list>
     </option>
   </component>
@@ -196,7 +198,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -287,7 +289,7 @@
       <workItem from="1562338756614" duration="3339000" />
       <workItem from="1562424068001" duration="1821000" />
       <workItem from="1562426039025" duration="12712000" />
-      <workItem from="1562971656908" duration="335000" />
+      <workItem from="1562971656908" duration="3681000" />
     </task>
     <task id="LOCAL-00001" summary="KenPomDriver now uploads data to google sheets.">
       <created>1562186108180</created>
@@ -324,11 +326,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562367250717</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Switching to use headless driver.">
+      <created>1562975520968</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562975520968</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47048000" />
+    <option name="totallyTimeSpent" value="50394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -346,6 +355,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22889842" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32921812" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24175824" />
@@ -358,7 +368,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32967034" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.32921812" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921812" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24964234" />
@@ -410,14 +420,18 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Refactored the organization of the project." />
     <MESSAGE value="KenPomDriver now uploads data to google sheets." />
     <MESSAGE value="Reformated the data being uploaded to google sheets." />
     <MESSAGE value="Sheet now shows if the spread was covered." />
     <MESSAGE value="Changed how values are upload to the google sheet." />
     <MESSAGE value="Added files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added files." />
+    <MESSAGE value="Switching to use headless driver." />
+    <MESSAGE value="Changed naming." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed naming." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -474,16 +488,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/ken_pom/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/code_drivers/KenPomDriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomSheets.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -518,12 +522,25 @@
     <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomPredictions.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/ken_pom/temp-plot.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_drivers/KenPomDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
