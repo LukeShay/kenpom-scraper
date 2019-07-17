@@ -64,7 +64,11 @@ class KenPomPage(BasePage):
         return len(BasePage.get_elements(self, FAN_MATCH_TABLE_ROWS_XPATH + '/td[@class="stats"]/..'))
 
     def get_prediction(self, row_number):
-        prediction = BasePage.get_text(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))  # .replace("'", '')
+        prediction = BasePage.get_text(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number))
+        teams = BasePage.get_elements(self, FAN_MATCH_TABLE_TEAMS_XPATH.format(row_number))
+        text = BasePage.get_text(self, FAN_MATCH_SCORE_XPATH.format(row_number)).replace(',', '')
+
+        actual_scores = [int(s) for s in text.split() if s.isdigit()]
 
         # TODO parse_prediction(prediction)
 
@@ -82,24 +86,13 @@ class KenPomPage(BasePage):
         team = team.strip()
         score = [int(s) for s in predication_array[i].split('-')]
         percentage = float(predication_array[i + 1].replace('(', '').replace(')', '').replace('%', ''))
-        predicted_team = True if \
-            BasePage.get_class(self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)) == 'correct' else False
 
-        if team == self.get_teams(row_number)[0]:  # score[0], score[1],
-            return score[1] - score[0], percentage, predicted_team
-        else:  # score[1], score[0],
-            return score[0] - score[1], percentage, predicted_team
-
-    def get_teams(self, row_number):
-        teams = BasePage.get_elements(self, FAN_MATCH_TABLE_TEAMS_XPATH.format(row_number))
-        return teams[0].text, teams[1].text
-
-    def get_score(self, row_number):
-        text = BasePage.get_text(self, FAN_MATCH_SCORE_XPATH.format(row_number)).replace(',', '')
-
-        numbers = [int(s) for s in text.split() if s.isdigit()]
-
-        return tuple((numbers[3] - numbers[1],))  # numbers[1], numbers[3],
+        if team == teams[0].text:
+            return teams[0].text, teams[1].text, actual_scores[3] - actual_scores[1], score[1] - score[0], \
+                   percentage, actual_scores[3] - actual_scores[1] < 0
+        else:
+            return teams[1].text, teams[0].text, actual_scores[1] - actual_scores[3], score[1] - score[0], \
+                   percentage, actual_scores[1] - actual_scores[3] < 0
 
     def get_num_fan_match_rows(self):
         return len(BasePage.get_elements(self, FAN_MATCH_TABLE_ROWS_XPATH)) - 6
@@ -119,7 +112,7 @@ class KenPomPage(BasePage):
 
     def get_row_as_tuple(self, row_number):
         try:
-            r_tuple = self.get_teams(row_number) + self.get_score(row_number) + self.get_prediction(row_number)
+            r_tuple = self.get_prediction(row_number)
             covered = r_tuple[2] < r_tuple[3] < 0
             return r_tuple + tuple((covered,))
         except IndexError:
@@ -154,6 +147,7 @@ class KenPomPage(BasePage):
             self.go_to_previous_fan_match_with_games()
 
         self.sheet1.clear()
+
         self.worksheet.values_update(
             'Sheet1',
             params={
@@ -164,5 +158,3 @@ class KenPomPage(BasePage):
             }
         )
 
-        # file.write(fanmatch_list)
-        # file.close()
