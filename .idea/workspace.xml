@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03fd30c0-3272-40bb-948b-9b7c51c32022" name="Default Changelist" comment="Scraper now starts and ends on specified dates.">
-      <change afterPath="$PROJECT_DIR$/data/ken_pom/KenPomData.py" afterDir="false" />
+    <list default="true" id="03fd30c0-3272-40bb-948b-9b7c51c32022" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomAnalysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomScraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sheets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ken_pom/KenPomSheets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ken_pom/temp-plot.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_drivers/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/web_drivers/chromedriver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +50,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Luke Shay &lt;38476395+lukeshay@users.noreply.github.com&gt;Scr" />
         <option value="Luke Shay &lt;38476395+lukeshay@users.noreply.github.com&gt;" />
       </list>
     </option>
@@ -187,7 +175,7 @@
       <workItem from="1570228090864" duration="121000" />
       <workItem from="1570228226489" duration="2250000" />
       <workItem from="1570891789534" duration="138000" />
-      <workItem from="1570891938706" duration="7775000" />
+      <workItem from="1570891938706" duration="7823000" />
     </task>
     <task id="LOCAL-00001" summary="KenPomDriver now uploads data to google sheets.">
       <created>1562186108180</created>
@@ -259,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564112338560</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Scraper now puts data in a file. Added analysis methods.">
+      <created>1570911613152</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1570911613152</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -316,7 +311,8 @@
     <MESSAGE value="Added chrome driver." />
     <MESSAGE value="Fixed order of teams." />
     <MESSAGE value="Scraper now starts and ends on specified dates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Scraper now starts and ends on specified dates." />
+    <MESSAGE value="Scraper now puts data in a file. Added analysis methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Scraper now puts data in a file. Added analysis methods." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
