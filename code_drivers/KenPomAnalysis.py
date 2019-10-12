@@ -1,9 +1,12 @@
-from data.ken_pom.KenPomSheets import KenPomSheets
+from data.ken_pom import KenPomData
 
 
 def main():
-    ken_pom_sheets = KenPomSheets()
-    ken_pom_sheets.plot_covered_based_on_percent()
+    print("Dog under 70: {}".format(KenPomData.dog_under_percent(70)[2]))
+    print("Dog under 75: {}".format(KenPomData.dog_under_percent(75)[2]))
+    print("Dog under 80: {}".format(KenPomData.dog_under_percent(80)[2]))
+    print("Dog under 85: {}".format(KenPomData.dog_under_percent(85)[2]))
+    print("Dog under 90: {}".format(KenPomData.dog_under_percent(90)[2]))
 
 
 if __name__ == "__main__":

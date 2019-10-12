@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03fd30c0-3272-40bb-948b-9b7c51c32022" name="Default Changelist" comment="Scraper now starts and ends on specified dates.">
+      <change afterPath="$PROJECT_DIR$/data/ken_pom/KenPomData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_drivers/KenPomDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_drivers/KenPomScraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Sheets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ken_pom/KenPomSheets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ken_pom/temp-plot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_drivers/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/web_drivers/chromedriver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,84 +36,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_drivers/KenPomDriver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomSheets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_drivers/KenPomAnalysis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/Sheets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web_scraper/BasePage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-149">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomPredictions.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -135,98 +68,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/KenPom/BaseUtils.py" />
-        <option value="$PROJECT_DIR$/KenPom/KenPom.py" />
-        <option value="$PROJECT_DIR$/KenPom/BasePage.py" />
-        <option value="$PROJECT_DIR$/KenPom/ken_pom_utils.py" />
-        <option value="$PROJECT_DIR$/KenPom/ken_pom_driver.py" />
-        <option value="$PROJECT_DIR$/KenPom/KenPomPage.py" />
-        <option value="$PROJECT_DIR$/web_scraper/ken_pom/ken_pom_driver.py" />
-        <option value="$PROJECT_DIR$/kenpompredictions.txt" />
-        <option value="$PROJECT_DIR$/data/kenpompredictions.txt" />
-        <option value="$PROJECT_DIR$/sheets_api/test_sheets.py" />
-        <option value="$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py" />
-        <option value="$PROJECT_DIR$/web_scraper/BasePage.py" />
-        <option value="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets.json" />
-        <option value="$PROJECT_DIR$/sheets_api/package.json" />
-        <option value="$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets2.json" />
-        <option value="$PROJECT_DIR$/data/ken_pom/KenPomAnalysis.py" />
-        <option value="$PROJECT_DIR$/data/SheetsPage.py" />
-        <option value="$PROJECT_DIR$/data/ken_pom/KenPomSheetsPage.py" />
-        <option value="$PROJECT_DIR$/data/Sheets.py" />
-        <option value="$PROJECT_DIR$/drivers/KenPomDriver.py" />
-        <option value="$PROJECT_DIR$/code_drivers/KenPomAnalysis.py" />
-        <option value="$PROJECT_DIR$/data/ken_pom/KenPomSheets.py" />
-        <option value="$PROJECT_DIR$/code_drivers/KenPomDriver.py" />
-        <option value="$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="720" />
     <option name="height" value="820" />
   </component>
+  <component name="ProjectId" id="1OYpfoGuI5qzUbzfxl73EKJS5zj" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-              <item name="code_drivers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="ken_pom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-              <item name="web_scraper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sports-Betting-Program" type="462c0819:PsiDirectoryNode" />
-              <item name="web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="ken_pom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Sports-Betting-Program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -234,7 +83,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -257,14 +106,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.KenPomScraper">
+  <component name="RunManager" selected="Python.KenPomAnalysis">
     <configuration name="KenPomAnalysis" type="PythonConfigurationType" factoryName="Python">
       <module name="Sports-Betting-Program" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code_drivers" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -290,7 +136,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code_drivers/KenPomDriver.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code_drivers/KenPomScraper.py" />
       <option name="PARAMETERS" value="roby@shaybrothers.com DqwtQ5eW1K" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -328,7 +174,20 @@
       <workItem from="1562971656908" duration="6239000" />
       <workItem from="1563228721388" duration="1589000" />
       <workItem from="1563366862686" duration="1420000" />
-      <workItem from="1563933940914" duration="4219000" />
+      <workItem from="1563933940914" duration="4683000" />
+      <workItem from="1564164363257" duration="55000" />
+      <workItem from="1564164494791" duration="38000" />
+      <workItem from="1564164547601" duration="744000" />
+      <workItem from="1564706819077" duration="2856000" />
+      <workItem from="1565454786864" duration="3079000" />
+      <workItem from="1567107576348" duration="24000" />
+      <workItem from="1567527462863" duration="14000" />
+      <workItem from="1569854039675" duration="29000" />
+      <workItem from="1570226673723" duration="1380000" />
+      <workItem from="1570228090864" duration="121000" />
+      <workItem from="1570228226489" duration="2250000" />
+      <workItem from="1570891789534" duration="138000" />
+      <workItem from="1570891938706" duration="7775000" />
     </task>
     <task id="LOCAL-00001" summary="KenPomDriver now uploads data to google sheets.">
       <created>1562186108180</created>
@@ -393,11 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1563337425303</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Scraper now starts and ends on specified dates.">
+      <created>1564112338560</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564112338560</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,34 +271,6 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23748212" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24175824" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997253" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921812" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32967034" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921812" />
-      <window_info anchor="bottom" id="Messages" order="13" visible="true" weight="0.32921812" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24964234" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.3297568" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3297568" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -445,20 +280,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -499,125 +321,8 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Sports_Betting_Program$KenPomScraper.coverage" NAME="KenPomScraper Coverage Results" MODIFIED="1562173644922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
-    <SUITE FILE_PATH="coverage/Sports_Betting_Program$ken_pom_scraper.coverage" NAME="ken_pom_scraper Coverage Results" MODIFIED="1560722372780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/KenPom" />
     <SUITE FILE_PATH="coverage/Sports_Betting_Program$KenPomPage.coverage" NAME="KenPomPage Coverage Results" MODIFIED="1561231602766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/KenPom" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="uml://Python/#/Users/luke/Desktop/Sports-Betting-Program/KenPom/ken_pom_driver.py">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>Python</ID>
-          <OriginalElement>#/Users/luke/Desktop/Sports-Betting-Program/KenPom/ken_pom_driver.py</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="574.0" y="219.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drivers/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/KenPomPredictions.txt" />
-    <entry file="file://$PROJECT_DIR$/sheets_api/test_sheets.py" />
-    <entry file="file://$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sheets_api/SportsBettingProgram-sheets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ken_pom/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/data/ken_pom/temp-plot.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/Sheets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomPredictions.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web_scraper/BasePage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/gspread/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="175" selection-start-line="175" selection-end-line="175" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ken_pom/KenPomSheets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_drivers/KenPomAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_drivers/KenPomDriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web_scraper/ken_pom/KenPomPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <SUITE FILE_PATH="coverage/Sports_Betting_Program$ken_pom_scraper.coverage" NAME="ken_pom_scraper Coverage Results" MODIFIED="1560722372780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/KenPom" />
+    <SUITE FILE_PATH="coverage/Sports_Betting_Program$KenPomScraper.coverage" NAME="KenPomScraper Coverage Results" MODIFIED="1562173644922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
   </component>
 </project>
