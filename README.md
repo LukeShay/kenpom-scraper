@@ -1,7 +1,7 @@
 Sports Betting Program
 
 GitHub
-* https://github.com/LukeShay/Sports-Betting-Program
+* https://github.com/LukeShay/kenpom-scraper
 
 10 commandments of sports betting by Wise
 1. Thou shall not tease college football
