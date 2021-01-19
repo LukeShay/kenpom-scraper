@@ -49,7 +49,8 @@ class KenPomPage(BasePage):
     def __init__(self, driver):
         BasePage.__init__(self, driver)
         self.driver = driver
-        self.f = open(f"{os.getcwd()}/output/data.json, "w")
+        os.mkdir(f"{os.getcwd()}/output")
+        self.f = open(f"{os.getcwd()}/output/data.json", "w")
 
     def __del__(self):
         BasePage.__del__(self)
