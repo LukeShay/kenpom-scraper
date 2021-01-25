@@ -3,6 +3,8 @@ import json
 
 from web_scraper.base_page import BasePage
 from web_scraper.ken_pom import ken_pom_utils
+from itertools import chain
+from domain.ken_pom_prediction import KenPomPrediction
 
 JSON_FILE_PATH = os.getcwd() + "/../sheets_api/SportsBettingProgram-sheets.json"
 SCOPE = [
@@ -24,33 +26,35 @@ FAN_MATCH_XPATH = FAN_MATCH_TABLE_ROWS_XPATH + "[{}]"
 FAN_MATCH_SCORE_XPATH = FAN_MATCH_XPATH + "/td[1]"
 FAN_MATCH_TABLE_PREDICTION_XPATH = FAN_MATCH_XPATH + "/td[2]"
 FAN_MATCH_TABLE_TEAMS_XPATH = FAN_MATCH_XPATH + "/td[1]/a"
+FAN_MATCH_LOCATION_XPATH = FAN_MATCH_XPATH + "/td[4]"
 
 FAN_MATCH_PREVIOUS_DATE_XPATH = '//a[contains(@href,"/fanmatch.php")]'
 
 NO_GAMES_XPATH = '//h2[.="Sorry, no games today. :("]'
 
-COVERED = "=C{}<D{}"
-
-HEADERS = (
-    "DATE",
-    "FAVORITE",
-    "UNDERDOG",
-    "ACTUAL SPREAD",
-    "PREDICTED SPREAD",
-    "PERCENTAGE",
-    "CORRECT TEAM",
-    "COVERED",
+BASE_RATINGS_URL = "https://kenpom.com/index.php"
+RATINGS_TABLE_ROWS_SELECTOR = "#ratings-table > tbody > tr"
+RATINGS_TABLE_TEAMS_SELECTOR = (
+    RATINGS_TABLE_ROWS_SELECTOR + " > td:nth-child(2) > a:nth-child(1)"
 )
 
-NUM_UNNEEDED_ROWS = 6
+BASE_TEAM_URL = "https://kenpom.com/team.php?team="
+TEAM_LOCATION_SELECTOR = "#title-container"
 
 
 class KenPomPage(BasePage):
     def __init__(self, driver):
         BasePage.__init__(self, driver)
         self.driver = driver
-        os.mkdir(f"{os.getcwd()}/output")
-        self.f = open(f"{os.getcwd()}/output/data.json", "w")
+
+        try:
+            os.mkdir(f"{os.getcwd()}/output")
+        except:
+            print()
+
+        self.f = open(f"{os.getcwd()}/output/data.csv", "w")
+        f = open(f"{os.getcwd()}/teams.json", "r")
+        self.team_locations = json.loads(f.read())
 
     def __del__(self):
         BasePage.__del__(self)
@@ -64,14 +68,17 @@ class KenPomPage(BasePage):
     def go_to_fan_match(self):
         BasePage.go_to_website(self, BASE_FAN_MATCH_URL)
 
-    def login(self, email, password):
-        BasePage.send_keys_to_element(self, EMAIL_XPATH, email)
-        BasePage.send_keys_to_element(self, PASSWORD_XPATH, password)
-        BasePage.click_element(self, SUBMIT_BUTTON_XPATH)
+    def go_to_ratings(self):
+        BasePage.go_to_website(self, BASE_RATINGS_URL)
 
-    def get_num_rows(self) -> int:
+    def login(self, email, password):
+        BasePage.send_keys_to_element_by_xpath(self, EMAIL_XPATH, email)
+        BasePage.send_keys_to_element_by_xpath(self, PASSWORD_XPATH, password)
+        BasePage.click_element_by_xpath(self, SUBMIT_BUTTON_XPATH)
+
+    def get_num_fan_match_rows(self) -> int:
         return len(
-            BasePage.get_elements(
+            BasePage.get_elements_by_xpath(
                 self, FAN_MATCH_TABLE_ROWS_XPATH + '/td[@class="stats"]/..'
             )
         )
@@ -79,40 +86,46 @@ class KenPomPage(BasePage):
     def get_current_date(self) -> str:
         return self.driver.current_url.split("=")[1]
 
-    def get_prediction(self, row_number) -> tuple:
-        prediction = BasePage.get_text(
+    def get_prediction(self, row_number) -> KenPomPrediction:
+        prediction = BasePage.get_text_by_xpath(
             self, FAN_MATCH_TABLE_PREDICTION_XPATH.format(row_number)
         )
-        teams = BasePage.get_elements(
+        teams = BasePage.get_elements_by_xpath(
             self, FAN_MATCH_TABLE_TEAMS_XPATH.format(row_number)
         )
-        text = BasePage.get_text(
+        text = BasePage.get_text_by_xpath(
             self, FAN_MATCH_SCORE_XPATH.format(row_number)
         ).replace(",", "")
+        location = BasePage.get_text_by_xpath(
+          self, FAN_MATCH_LOCATION_XPATH.format(row_number)
+        ).split("\n")[0]
 
         actual_scores, percentage, score, team = self.parse_row(prediction, text)
+        home_team = teams[0].text if location == self.team_locations[teams[0].text] else teams[1].text
 
-        if team == teams[0].text: # 
-            return (
-                self.get_current_date(),
-                teams[0].text, # favorite
-                teams[1].text, # dog
-                actual_scores[3] - actual_scores[1], # actual spread
-                score[1] - score[0], # predicted spread
-                percentage, # percentage
-                actual_scores[3] - actual_scores[1] < 0, # correct
-                teams[0], # predicted winner
+        if team == teams[0].text:  # favorite wins
+            return KenPomPrediction(
+                date=self.get_current_date(),
+                favorite=teams[0].text,
+                underdog=teams[1].text,
+                favorite_actual_score=actual_scores[1],
+                underdog_actual_score=actual_scores[3],
+                favorite_predicted_score=score[0],
+                underdog_predicted_score=score[1],
+                percentage=percentage,
+                home_team=home_team,
             )
         else:
-            return (
-                self.get_current_date(),
-                teams[1].text,
-                teams[0].text,
-                actual_scores[1] - actual_scores[3],
-                score[1] - score[0],
-                percentage,
-                actual_scores[1] - actual_scores[3] < 0,
-                teams[1]
+            return KenPomPrediction(
+                date=self.get_current_date(),
+                favorite=teams[1].text,
+                underdog=teams[0].text,
+                favorite_actual_score=actual_scores[3],
+                underdog_actual_score=actual_scores[1],
+                favorite_predicted_score=score[1],
+                underdog_predicted_score=score[0],
+                percentage=percentage,
+                home_team=home_team,
             )
 
     @staticmethod
@@ -136,49 +149,58 @@ class KenPomPage(BasePage):
         return actual_scores, percentage, score, team
 
     def go_to_previous_fan_match(self):
-        element = BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH)
+        element = BasePage.get_element_by_xpath(self, FAN_MATCH_PREVIOUS_DATE_XPATH)
         BasePage.go_to_website(self, element.get_attribute("href"))
 
     def go_to_previous_fan_match_with_games(self):
         self.go_to_previous_fan_match()
 
-        while BasePage.does_element_exist(self, NO_GAMES_XPATH):
+        while BasePage.does_element_exist_by_xpath(self, NO_GAMES_XPATH):
             self.go_to_previous_fan_match()
 
     def get_previous_date(self) -> str:
-        return BasePage.get_text(
-            self, BasePage.get_element(self, FAN_MATCH_PREVIOUS_DATE_XPATH)
+        return BasePage.get_text_by_xpath(
+            self, BasePage.get_element_by_xpath(self, FAN_MATCH_PREVIOUS_DATE_XPATH)
         )
 
-    def get_row_as_tuple(self, row_number) -> tuple:
+    def get_row(self, row_number) -> KenPomPrediction:
         try:
-            r_tuple = self.get_prediction(row_number)
-            covered = r_tuple[3] < r_tuple[4] < 0
-            return r_tuple + tuple((covered,))
+            return self.get_prediction(row_number)
         except IndexError:
+            return None
+
+    def get_all_teams(self) -> list[str]:
+        assert self.driver.current_url == BASE_RATINGS_URL
+
+        teams = []
+
+        for el in BasePage.get_elements_by_selector(self, RATINGS_TABLE_TEAMS_SELECTOR):
+            teams.append(el.text)
+
+        return teams
+
+    def go_to_team_page(self, team):
+        BasePage.go_to_website(self, f"{BASE_TEAM_URL}{team.replace(' ', '+')}")
+
+    def get_team_location(self) -> str:
+        try:
             return (
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-                "ERROR",
-            )
+                BasePage.get_text_by_selector(self, TEAM_LOCATION_SELECTOR)
+                .split("\n")[1]
+                .split(" · ")[1]
+                .strip()
+            ) # This is awesome - lukeshay
+        except:
+            return "ERROR"
 
     def write_game_data_to_file(self, end_date):
-        arr = []
+        self.f.write(f"{KenPomPrediction.column_headers()}\n")
 
         while end_date not in self.driver.current_url:
-            for rows in range(1, self.get_num_rows() + 1):
-                row = self.get_row_as_tuple(rows)
+            for rows in range(1, self.get_num_fan_match_rows() + 1):
+                row = self.get_row(rows)
 
-                if row[0] != "ERROR":
-                    s = ken_pom_utils.ken_pom_tuple_to_json(row)
-                    arr.append(s)
+                if row is not None:
+                    self.f.write(f"{str(row)}\n")
 
             self.go_to_previous_fan_match_with_games()
-
-        self.f.write(json.dumps(arr))

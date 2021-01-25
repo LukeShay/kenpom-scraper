@@ -25,3 +25,7 @@ lint:
 scrape:
 	python3 code_drivers/ken_pom_scraper.py roby@shaybrothers.com DqwtQ5eW1K
 .PHONY: scrape
+
+ratings:
+	python3 code_drivers/ken_pom_ratings.py roby@shaybrothers.com DqwtQ5eW1K
+.PHONY: ratings
