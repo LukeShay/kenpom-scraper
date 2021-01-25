@@ -36,9 +36,10 @@ def main():
 
     for team in teams:
         ken_pom.go_to_team_page(team)
-        arr.append({ "team": team, "location": ken_pom.get_team_location() })
+        arr.append({"team": team, "location": ken_pom.get_team_location()})
 
     f.write(json.dumps(arr))
+
 
 if __name__ == "__main__":
     main()

@@ -97,11 +97,15 @@ class KenPomPage(BasePage):
             self, FAN_MATCH_SCORE_XPATH.format(row_number)
         ).replace(",", "")
         location = BasePage.get_text_by_xpath(
-          self, FAN_MATCH_LOCATION_XPATH.format(row_number)
+            self, FAN_MATCH_LOCATION_XPATH.format(row_number)
         ).split("\n")[0]
 
         actual_scores, percentage, score, team = self.parse_row(prediction, text)
-        home_team = teams[0].text if location == self.team_locations[teams[0].text] else teams[1].text
+        home_team = (
+            teams[0].text
+            if location == self.team_locations[teams[0].text]
+            else teams[1].text
+        )
 
         if team == teams[0].text:  # favorite wins
             return KenPomPrediction(
@@ -189,7 +193,7 @@ class KenPomPage(BasePage):
                 .split("\n")[1]
                 .split(" · ")[1]
                 .strip()
-            ) # This is awesome - lukeshay
+            )  # This is awesome - lukeshay
         except:
             return "ERROR"
 
