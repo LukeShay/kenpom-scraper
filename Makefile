@@ -1,7 +1,3 @@
-init:
-	source .venv/bin/activate
-.PHONY: init
-
 install:
 	python3 -m pip install -Ur requirements.txt
 .PHONY: install
@@ -22,10 +18,10 @@ lint:
 	python3 -m black --check ./
 .PHONY: lint
 
-scrape:
-	python3 code_drivers/ken_pom_scraper.py roby@shaybrothers.com DqwtQ5eW1K
-.PHONY: scrape
+fan-match:
+	python3 code_drivers/scrapers/ken_pom/fan_match.py roby@shaybrothers.com DqwtQ5eW1K
+.PHONY: fan-match
 
-ratings:
-	python3 code_drivers/ken_pom_ratings.py roby@shaybrothers.com DqwtQ5eW1K
-.PHONY: ratings
+team-stats:
+	python3 code_drivers/scrapers/ken_pom/team_stats.py roby@shaybrothers.com DqwtQ5eW1K
+.PHONY: team-stats
