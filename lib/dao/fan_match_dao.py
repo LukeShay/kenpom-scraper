@@ -1,9 +1,11 @@
-from lib.domain.fan_match_model import FanMatch
-from sqlalchemy.engine.base import Engine
-from sqlalchemy.orm import sessionmaker, Session
+import traceback
 from typing import Optional
 
+from sqlalchemy.engine.base import Engine
+from sqlalchemy.orm import Session, sessionmaker
+
 from lib.dao.base_dao import BaseDAO
+from lib.domain.fan_match_model import FanMatch
 
 
 class FanMatchDAO(BaseDAO):
@@ -23,28 +25,21 @@ class FanMatchDAO(BaseDAO):
             ).one()
 
             return None
-        except Exception:
-            print(Exception)
+        except:
+            traceback.print_exc()
 
         return self.save(prediction)
 
-    def save_or_update(
-        self, prediction: FanMatch
-    ) -> Optional[FanMatch]:
+    def save_or_update(self, prediction: FanMatch) -> Optional[FanMatch]:
         try:
             from_db = (
-                BaseDAO.query(FanMatch)
-                .filter_by(
-                    date=prediction.date,
-                    favorite=prediction.favorite,
-                    underdog=prediction.underdog,
-                    location=prediction.location,
-                )
-                .one()
+                BaseDAO.query(self, FanMatch).filter_by(slug=prediction.slug).first()
             )
 
-            prediction = FanMatch.merge(from_db, prediction)
-        except Exception:
-            print(Exception)
+            if from_db is not None:
+                FanMatch.merge(from_db, prediction)
+                return from_db
+        except:
+            traceback.print_exc()
 
         return self.save(prediction)

@@ -1,8 +1,10 @@
 import os
+import re
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String, Float, Boolean, DateTime
 from lib.domain.base import Base
 from datetime import datetime
+from lib.utils.reg_exp import RegExp
 
 
 class FanMatch(Base):
@@ -22,6 +24,7 @@ class FanMatch(Base):
     actual_spread = Column(Integer, nullable=False)
     covered = Column(Boolean, nullable=False)
     winner_predicted = Column(Boolean, nullable=False)
+    slug = Column(String, nullable=False, index=True, unique=True)
 
     def __init__(
         self,
@@ -36,12 +39,15 @@ class FanMatch(Base):
         location="",
     ):
         self.date = date
+
         self.favorite = favorite
         self.underdog = underdog
+
         self.favorite_predicted_score = favorite_predicted_score
         self.underdog_predicted_score = underdog_predicted_score
         self.favorite_actual_score = favorite_actual_score
         self.underdog_actual_score = underdog_actual_score
+
         self.percentage = percentage
         self.location = location
 
@@ -51,9 +57,11 @@ class FanMatch(Base):
         self.covered = None
         self.winner_predicted = None
 
-        self._calculate_numbers()
+        self.slug = None
 
-    def _calculate_numbers(self) -> None:
+        self._compute_values()
+
+    def _compute_values(self) -> None:
         self.predicted_spread = (
             self.underdog_predicted_score - self.favorite_predicted_score
         )
@@ -61,6 +69,17 @@ class FanMatch(Base):
 
         self.covered = self.actual_spread < self.predicted_spread
         self.winner_predicted = self.favorite_actual_score > self.underdog_actual_score
+
+        self.slug = (
+            RegExp.replace_special_characters(
+                self.date.strftime("%Y-%m-%d %H:%M:%S.%f %z"), "-"
+            )
+            + "-"
+            + RegExp.replace_special_characters(self.favorite, "-")
+            + "-"
+            + RegExp.replace_special_characters(self.underdog, "-")
+        )
+        self.slug = self.slug.replace("--", "-")
 
     def __str__(self):
         return f"{self.date},{self.favorite},{self.underdog},{self.location},{self.favorite_predicted_score},{self.underdog_predicted_score},{self.predicted_spread},{self.percentage},{self.favorite_actual_score},{self.underdog_actual_score},{self.actual_spread},{self.covered},{self.winner_predicted}"
@@ -83,36 +102,33 @@ class FanMatch(Base):
             prediction.location,
         )
 
-    @classmethod
-    def merge(cls, p1, p2):
-        new = cls.fromKenPomPrediction(p1)
+    def merge(self, p1):
+        self.date = p1.date if p1.date is not None else self.date
+        self.favorite = p1.favorite if p1.favorite is not None else self.favorite
+        self.underdog = p1.underdog if p1.underdog is not None else self.underdog
+        self.favorite_predicted_score = (
+            p1.favorite_predicted_score
+            if p1.favorite_predicted_score is not None
+            else self.favorite_predicted_score
+        )
+        self.underdog_predicted_score = (
+            p1.underdog_predicted_score
+            if p1.underdog_predicted_score is not None
+            else self.underdog_predicted_score
+        )
+        self.favorite_actual_score = (
+            p1.favorite_actual_score
+            if p1.favorite_actual_score is not None
+            else self.favorite_actual_score
+        )
+        self.underdog_actual_score = (
+            p1.underdog_actual_score
+            if p1.underdog_actual_score is not None
+            else self.underdog_actual_score
+        )
+        self.percentage = (
+            p1.percentage if p1.percentage is not None else self.percentage
+        )
+        self.location = p1.location if p1.location is not None else self.location
 
-        new.date = p2.date if p2.date is not None else p1.date
-        new.favorite = p2.favorite if p2.favorite is not None else p1.favorite
-        new.underdog = p2.underdog if p2.underdog is not None else p1.underdog
-        new.favorite_predicted_score = (
-            p2.favorite_predicted_score
-            if p2.favorite_predicted_score is not None
-            else p1.favorite_predicted_score
-        )
-        new.underdog_predicted_score = (
-            p2.underdog_predicted_score
-            if p2.underdog_predicted_score is not None
-            else p1.underdog_predicted_score
-        )
-        new.favorite_actual_score = (
-            p2.favorite_actual_score
-            if p2.favorite_actual_score is not None
-            else p1.favorite_actual_score
-        )
-        new.underdog_actual_score = (
-            p2.underdog_actual_score
-            if p2.underdog_actual_score is not None
-            else p1.underdog_actual_score
-        )
-        new.percentage = p2.percentage if p2.percentage is not None else p1.percentage
-        new.location = p2.location if p2.location is not None else p1.location
-
-        new._calculate_numbers()
-
-        return new
+        self._compute_values()

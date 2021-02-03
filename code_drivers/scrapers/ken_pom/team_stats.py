@@ -6,27 +6,25 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from lib.web_scraper.ken_pom.ken_pom_page import KenPomPage
+from lib.utils.env import Env
+from lib.domain.team_model import Team
 
-DRIVER_PATH = os.getcwd() + "/../web_drivers/chromedriver.exe"
+DRIVER_PATH = "./drivers/chromedriver"
 
 
 def main():
-    assert len(sys.argv) == 3, "Incorrect number of args inputted."
-
     f = open(f"{os.getcwd()}/teams.json", "w")
 
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    chrome_options.add_argument(Env.selenium_flags())
 
-    web_driver = webdriver.Chrome(
-        options=chrome_options
-    )  # , executable_path=DRIVER_PATH)
+    web_driver = webdriver.Chrome(options=chrome_options, executable_path=DRIVER_PATH)
     web_driver.maximize_window()
 
     ken_pom = KenPomPage(web_driver)
 
     ken_pom.go_to()
-    ken_pom.login(sys.argv[1], sys.argv[2])
+    ken_pom.login(Env.ken_pom_email(), Env.ken_pom_password())
 
     ken_pom.go_to_ratings()
 
@@ -36,7 +34,7 @@ def main():
 
     for team in teams:
         ken_pom.go_to_team_page(team)
-        arr.append({"team": team, "location": ken_pom.get_team_location()})
+        arr.append(Team(team, ken_pom.get_team_location())
 
     f.write(json.dumps(arr))
 

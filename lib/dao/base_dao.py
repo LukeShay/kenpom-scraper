@@ -8,15 +8,16 @@ class BaseDAO:
         self._session = None
 
     def save(self, obj):
-        self.session().add(obj)
+        self.session.add(obj)
         return obj
 
     def commit(self) -> None:
-        self.session().commit()
+        self.session.commit()
 
     def query(self, clazz) -> Query:
-        return self.session().query(clazz)
+        return self.session.query(clazz)
 
+    @property
     def session(self) -> Session:
         if self._session is None:
             DBSession = sessionmaker(bind=self._engine)

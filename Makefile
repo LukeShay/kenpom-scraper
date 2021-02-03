@@ -19,9 +19,13 @@ lint:
 .PHONY: lint
 
 fan-match:
-	python3 code_drivers/scrapers/ken_pom/fan_match.py roby@shaybrothers.com DqwtQ5eW1K
+	python3 code_drivers/scrapers/ken_pom/fan_match.py
 .PHONY: fan-match
 
+fan-match-parser:
+	python3 code_drivers/scrapers/ken_pom/fan_match_parser.py
+.PHONY: fan-match-parser
+
 team-stats:
-	python3 code_drivers/scrapers/ken_pom/team_stats.py roby@shaybrothers.com DqwtQ5eW1K
+	python3 code_drivers/scrapers/ken_pom/team_stats.py
 .PHONY: team-stats

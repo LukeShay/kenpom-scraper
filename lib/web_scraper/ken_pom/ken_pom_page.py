@@ -41,8 +41,8 @@ class KenPomPage(BasePage):
 
         try:
             os.mkdir(f"{os.getcwd()}/output")
-        except Exception:
-            print(Exception)
+        except:
+            self.driver = self.driver
 
     def __del__(self):
         BasePage.__del__(self)
@@ -50,8 +50,11 @@ class KenPomPage(BasePage):
     def go_to(self):
         BasePage.go_to_website(self, HOME_URL)
 
-    def go_to_fan_match(self):
-        BasePage.go_to_website(self, BASE_FAN_MATCH_URL)
+    def go_to_fan_match(self, date=None):
+        if date is None:
+            BasePage.go_to_website(self, BASE_FAN_MATCH_URL)
+        else:
+            BasePage.go_to_website(self, FAN_MATCH_URL.format(date))
 
     def go_to_ratings(self):
         BasePage.go_to_website(self, BASE_RATINGS_URL)
